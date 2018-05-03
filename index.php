@@ -9,7 +9,6 @@ if(isset($_SESSION["uid"])){
 }
 
 
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,7 +20,7 @@ if(isset($_SESSION["uid"])){
 		<link rel="stylesheet" href="css/bootstrap.min.css"/>
 		<script src="js/jquery2.js"></script>
 		<script src="js/bootstrap.min.js"></script>
-		<script src="main.js" charset="UTF-8"></script>
+		<script src="js/main2.js" charset="UTF-8"></script>
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<style></style>
 	</head>
@@ -45,11 +44,11 @@ if(isset($_SESSION["uid"])){
 				<li><a href="index.php"><span class="glyphicon glyphicon-home"></span>Inicio</a></li>
 				<li><a href="index.php"><span class="glyphicon glyphicon-modal-window"></span>Producto</a></li>
 			</ul>
-			<form class="navbar-form navbar-left">
+			<form class="navbar-form navbar-left" method ="post">
 		        <div class="form-group">
-		          <input type="text" class="form-control" placeholder="Search" id="search">
+		          <input type="text" class="form-control" placeholder="Search" id="search" onKeyUp="buscar();">
 		        </div>
-		        <button type="submit" class="btn btn-primary" id="search_btn"><span class="glyphicon glyphicon-search"></span></button>
+		        
 		     </form>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span>Cart<span class="badge">0</span></a>
@@ -89,6 +88,7 @@ if(isset($_SESSION["uid"])){
 										<label for="email">Password</label>
 										<input type="password" class="form-control" name="password" id="password" required/>
 										<p><br/></p>
+										<div><a href="register_client.php">Create a new account?</a></div>
 										<a href="#" style="color:white; list-style:none;">Forgotten Password</a><input type="submit" class="btn btn-success" style="float:right;">
 									</form>
 								</div>
@@ -135,7 +135,7 @@ if(isset($_SESSION["uid"])){
 				<div class="panel panel-info">
 					<div class="panel-heading">Productos</div>
 					<div class="panel-body">
-						<div id="get_product">
+						<div id="list_product">
 							<!--Here we get product jquery Ajax Request-->
 						</div>
 						<!--<div class="col-md-4">
@@ -157,7 +157,60 @@ if(isset($_SESSION["uid"])){
 		</div>
 	</div>
 </body>
+<script type="text/javascript">
+	function buscar() {
+		console.log("casdasd")
+    var textoBusqueda = $("input#search").val();
+    
+ 
+     if (textoBusqueda != "") {
+        $.post("./action2.php", {searchProductoUser:1,keyword:textoBusqueda}, function(mensaje) {
+            $("#list_product").html(mensaje);
+         }); 
+     } else { 
+
+        $("#list_product").html('<p>Recuerde la consulta puede ser por:</p><br><p> nombre, color, precio, descripciòn</p><p>Enter para cargar de nuevo los productos</p> ');
+        }
+    }
+
+
+</script>
+
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
