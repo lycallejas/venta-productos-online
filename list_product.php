@@ -142,5 +142,22 @@ if(!$_SESSION["rol"] == "admin"){
 		</div>
 	</div>
 </body>
+<script type="text/javascript">
+	function buscar() {
+    var textoBusqueda = $("input#search").val();
+    
+ 
+     if (textoBusqueda != "") {
+        $.post("./action2.php", {searchProducto:1,keyword:textoBusqueda}, function(mensaje) {
+            $("#gets_product").html(mensaje);
+         }); 
+     } else { 
 
+        $("#gets_product").html('<p>Recuerde la consulta puede ser por:</p><br><p> referencia, color o precio</p><p>Enter para cargar de nuevo los productos</p> ');
+        }
+    }
+
+
+</script>
+</html>
 
