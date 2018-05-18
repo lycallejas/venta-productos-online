@@ -105,3 +105,173 @@ if(!$_SESSION["rol"] == "admin"){
 	<p><br/></p>
 	<p><br/></p>
 	<p><br/></p>
+	<div class="container-fluid margen_superior">
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8" id="signup_msg">
+				<?php 
+				if(empty($_GET['error']) == FALSE){
+					$error = $_GET['error'];
+					?>
+					<div class="alert alert-danger">
+						<?php echo $error; ?>
+					</div>
+					<?php }
+					?>
+
+					<?php 
+					if(empty($_GET['exitos']) == FALSE){
+						$exito = $_GET['exitos'];
+						?>
+						<div class="alert alert-success">
+							<?php echo $exito; ?>
+						</div>
+						<?php }
+						?>
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<div class="panel panel-primary">
+					<div class="panel-heading">Formulario Registro Producto</div>
+					<div class="panel-body">
+					
+					<form id="register_product" action="dat_productos.php" method="post"   enctype="multipart/form-data">
+						
+                         
+                         <div class="row">
+							<div class="col-md-12">
+								<label for="n_documento">Referencia (*)</label>
+								<input type="text" id="referencia" name="referencia" class="form-control">
+							</div>
+						</div> 
+
+						 <div class="row">
+							<div class="col-md-12">
+								<label for="n_documento">Nombre Empresa (*)</label>
+								<input type="text" id="empresa" name="empresa" class="form-control">
+							</div>
+						</div>
+
+
+						 <div class="row">
+							<div class="col-md-12">
+								<label for="n_cliente">Nombre  (*)</label>
+								<input type="text" id="nombre" name="nombre" class="form-control">
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12">
+								<label for="n_cliente">Descripcion  (*)</label>
+								<textarea class="form-control" id="descripcion" name="descripcion" rows="3" placeholder="Resumen" maxlength="240" ></textarea>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12">
+								<label for="mobile">Tipo (*)</label>
+								<input type="text" id="tipo" name="tipo"class="form-control">
+							</div>
+						</div>	
+
+						<div class="row">
+							<div class="col-md-12">
+								<label for="address1">Material (*)</label>
+								<input type="text" id="material" name="material"class="form-control">
+							</div>
+						</div>
+							
+						<div class="row">
+							<div class="col-md-12">
+								<label for="address1">Dimensiòn alto y profundidad (cm) (*)</label>
+								<input type="text" id="dimension" name="dimension"class="form-control">
+							</div>
+						</div>
+						 
+						<div class="row">
+							<div class="col-md-12">
+								<label for="address1">Color (*)</label>
+								<input type="text" id="color" name="color" class="form-control">
+							</div>
+						</div> 
+
+						<div class="row">
+							<div class="col-md-12">
+								<label for="address1">Peso (gr) (*)</label>
+								<input type="text" id="peso" name="peso" class="form-control">
+							</div>
+						</div>
+
+						
+
+						<div class="row">
+							<div class="col-md-12">
+								<label for="address1">Precio (*)</label>
+								<input type="text" id="precio" name="precio" class="form-control">
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12">
+								<label for="address1">Unidades (*)</label>
+								<input type="text" id="unidades" name="unidades" class="form-control">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="f_documento">Categoria (*)</label>
+							<select class="form-control col-md-6" name="categoria" id="categoria">
+                             <option value="1">Electronico</option>
+                             <option value="2">Ropa de  Mujer</option>
+                             <option value="3">Ropa  de Hombre</option>
+                             <option value="4">Ropa  de Niño</option>
+                             <option value="5">Muebles</option>
+                             <option value="6">Electrodomesticos</option>
+                             <option value="7">Gadgets Electronicos</option>
+							</select>
+						 </div>
+                        
+                        <div class="row">
+							<div class="col-md-12">
+								<label for="address1">Foto (*)</label>
+								<input type="file" id="foto" name="foto">
+							</div>
+						</div>   
+
+						
+						<p><br/></p>
+						<div class="row">
+							<div class="col-md-12">
+								<input style="width:100%;" value="Sign Up" type="submit" name="signup_button"class="btn btn-success btn-lg">
+							</div>
+						</div>
+						
+				
+					</form>
+					<div class="panel-footer"></div>
+				</div>
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+	</div>
+</body>
+	
+<!--
+<script type="text/javascript">
+$(document).ready(function(){
+console.log($jquery_3_2_1().jquery); // Esto imprime v1.9.1
+console.log($jquery_2_2_2().jquery); // Esto imprime v1.10.2
+});
+</script>
+-->
+</html>
+	<?php
+//}
+
+
+
+?>
+
