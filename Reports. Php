@@ -1,0 +1,15 @@
+
+<?php
+//SPRING 3
+session_start();
+if(!$_SESSION["rol"] == "admin"){
+	header("location:index.php");
+}
+
+   include 'plantilla.php';
+	require 'db.php';
+	
+	error_reporting(E_ALL);
+	ini_set('display_errors', '1');
+
+$query = "SELECT p.referencia,p.nombre as nombreProducto,e.nombre as nombreEmpresa,p.descripcion,p.tipo,p.unidades,p.precio,p.imagen FROM producto_info p ,Empresa e WHERE p.Empresa_idEmpresa = e.idEmpresa";
