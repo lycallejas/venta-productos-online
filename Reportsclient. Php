@@ -1,0 +1,15 @@
+
+<?php
+//SPRING 3
+session_start();
+if(!$_SESSION["rol"] == "admin"){
+	header("location:index.php");
+}
+
+   include 'plantilla2.php';
+	require 'db.php';
+	
+	error_reporting(E_ALL);
+	ini_set('display_errors', '1');
+
+$orders_list = "SELECT o.idorden,o.user_info_user_id,op.producto_info_idproducto,COUNT(o.qty) AS conteo,o.p_status,p.nombre,SUM(p.precio) AS total,p.imagen,p.descripcion FROM orden o,producto_info p,orden_producto op WHERE   op.producto_info_idproducto=p.idproducto GROUP BY nombre ORDER BY SUM(p.precio) DESC ";
